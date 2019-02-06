@@ -1,14 +1,16 @@
-// Webpack CSS import
+import Vue from 'vue';
+import VueOnsen from 'vue-onsenui';
+import CustomToolbar from './partials/CustomToolbar.vue';
+import AppNavigator from './AppNavigator.vue';
+// Onsen UI basic CSS
 import 'onsenui/css/onsenui.css';
+// Onsen UI CSS components source (requires cssnext)
 import 'onsenui/css/onsen-css-components.css';
 
-import Vue from 'vue'
-import VueOnsen from 'vue-onsenui';
-import App from './App.vue'
-
-Vue.config.productionTip = false
-Vue.use(VueOnsen); // VueOnsen set here as plugin to VUE. Done automatically if a call to window.Vue exists in the startup code.
+Vue.use(VueOnsen);
+Vue.component('custom-toolbar', CustomToolbar); // Common toolbar
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  render: h => h(AppNavigator)
+});
