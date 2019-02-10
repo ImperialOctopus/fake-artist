@@ -1,4 +1,15 @@
 <template>
-  <compose if.bind="home" view-model="app" view="./page1.html"></compose>
-  <compose if.bind="!home" view="./page2.html"></compose>
+  <nav class="navbar navbar-light bg-light fixed-top" role="navigation">
+    <a class="navbar-brand" href="#">
+      <i class="fa fa-user"></i>
+      <span>Contacts</span>
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">Contact List Placeholder</div>
+      <router-view class="col-md-8"></router-view>
+    </div>
+  </div>
 </template>
