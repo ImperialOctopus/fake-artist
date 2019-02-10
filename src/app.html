@@ -1,3 +1,4 @@
 <template>
-  <compose view-model="./pages/page1"></compose>
+  <compose if.bind="home" view-model="app" view="./page1.html"></compose>
+  <compose if.bind="!home" view="./page2.html"></compose>
 </template>
