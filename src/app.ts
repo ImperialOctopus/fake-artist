@@ -5,7 +5,7 @@ export class App {
   router: Router;
 
   configureRouter(config: RouterConfiguration, router: Router) {
-    config.title = "Sponge";
+    //config.title = "Sponge";
     config.map([
       {
         route: "",
