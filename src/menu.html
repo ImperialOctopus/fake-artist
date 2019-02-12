@@ -1,14 +1,11 @@
 <template>
   <h1>${header}</h1>
 
-  <form submit.trigger="play()">
-    <input type="text" value.bind="playerNumber" />
-    <button type="submit">Play</button>
-  </form>
+  <input type="text" value.bind="playerNumber" />
 
   <form submit.trigger="showInfo()">
     <button type="submit">Info</button>
   </form>
 
-  <a route-href="route:play">play</a>
+  <a click.delegate='play()'>play</a>
 </template>
