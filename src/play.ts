@@ -17,7 +17,7 @@ export class Play {
 
   activate(params) {
     var p = parseInt(params.playerNumber);
-    if (Number.isInteger(p) && p >= 1 && p <= 8) {
+    if (Number.isInteger(p) && p >= 1 && p <= 16) {
       this.playerNumber = p;
     } else {
       this.playerNumber = 1;

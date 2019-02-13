@@ -14,7 +14,7 @@ export class Menu {
   info() {}
 
   numberUp() {
-    if (this.playerNumber < 8) {
+    if (this.playerNumber < 16) {
       this.playerNumber += 1;
     }
   }
