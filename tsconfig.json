@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "resolveJsonModule": true,
     "target": "es5",
     "module": "esnext",
     "emitDecoratorMetadata": true,
@@ -11,15 +12,9 @@
     "allowJs": true,
     "baseUrl": "src",
     "skipLibCheck": true,
-    "lib": [
-      "es2017", "dom"
-    ]
+    "lib": ["es2017", "dom"]
   },
-  "include": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
-    "./custom_typings/**/*.d.ts"
-  ],
+  "include": ["./src/**/*.ts", "./test/**/*.ts", "./custom_typings/**/*.d.ts"],
   "atom": {
     "rewriteTsconfig": false
   }

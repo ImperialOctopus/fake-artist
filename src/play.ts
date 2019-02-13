@@ -1,19 +1,19 @@
 import { inject } from "aurelia-framework";
 import { Router } from "aurelia-router";
+import * as data from "./words.json";
 
 @inject(Router)
 export class Play {
   constructor(private router: Router) {
     this.router = router;
   }
-  category;
-  word;
-  wordVisible;
-
-  playerNumber;
-  fakePlayer;
-  selectedPlayer;
-  selectedPlayerFake;
+  category: string;
+  word: string;
+  wordVisible: boolean;
+  playerNumber: number;
+  fakePlayer: number;
+  selectedPlayer: number;
+  selectedPlayerFake: boolean;
 
   activate(params) {
     var p = parseInt(params.playerNumber);
@@ -47,8 +47,9 @@ export class Play {
   }
 
   generateWord() {
-    this.category = "Food";
-    this.word = "Macaroni Cheese";
+    var random = data.words[Math.floor(Math.random() * data.words.length)];
+    this.category = random.category;
+    this.word = random.word;
   }
 
   toggleWord() {

@@ -1,0 +1,104 @@
+{
+  "words": [
+    {
+      "category": "Food",
+      "word": "Apple"
+    },
+    {
+      "category": "Food",
+      "word": "Apple"
+    },
+    {
+      "category": "Food",
+      "word": "Orange"
+    },
+    {
+      "category": "Food",
+      "word": "Banana"
+    },
+    {
+      "category": "Food",
+      "word": "Cake"
+    },
+    {
+      "category": "Food",
+      "word": "Bread"
+    },
+    {
+      "category": "Food",
+      "word": "Macaroni Cheese"
+    },
+    {
+      "category": "Food",
+      "word": "Pizza"
+    },
+    {
+      "category": "Food",
+      "word": "Pancakes"
+    },
+    {
+      "category": "Animals",
+      "word": "Cow"
+    },
+    {
+      "category": "Animals",
+      "word": "Snake"
+    },
+    {
+      "category": "Animals",
+      "word": "Frog"
+    },
+    {
+      "category": "Animals",
+      "word": "Guinea Pig"
+    },
+    {
+      "category": "Animals",
+      "word": "Human"
+    },
+    {
+      "category": "Animals",
+      "word": "Dog"
+    },
+    {
+      "category": "Animals",
+      "word": "Cat"
+    },
+    {
+      "category": "Animals",
+      "word": "Horse"
+    },
+    {
+      "category": "Organs",
+      "word": "Heart"
+    },
+    {
+      "category": "Organs",
+      "word": "Lungs"
+    },
+    {
+      "category": "Organs",
+      "word": "Liver"
+    },
+    {
+      "category": "Organs",
+      "word": "Kidneys"
+    },
+    {
+      "category": "Organs",
+      "word": "Skin"
+    },
+    {
+      "category": "Organs",
+      "word": "Brain"
+    },
+    {
+      "category": "Organs",
+      "word": "Small Intestine"
+    },
+    {
+      "category": "Organs",
+      "word": "Stomach"
+    }
+  ]
+}
