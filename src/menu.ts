@@ -7,7 +7,7 @@ export class Menu {
     this.router = router;
   }
 
-  playerNumber = 1;
+  playerNumber = 3;
   play() {
     this.router.navigateToRoute("play", { playerNumber: this.playerNumber });
   }
@@ -19,7 +19,7 @@ export class Menu {
     }
   }
   numberDown() {
-    if (this.playerNumber > 1) {
+    if (this.playerNumber > 3) {
       this.playerNumber -= 1;
     }
   }

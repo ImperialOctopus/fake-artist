@@ -17,10 +17,10 @@ export class Play {
 
   activate(params) {
     var p = parseInt(params.playerNumber);
-    if (Number.isInteger(p) && p >= 1 && p <= 16) {
+    if (Number.isInteger(p) && p >= 3 && p <= 16) {
       this.playerNumber = p;
     } else {
-      this.playerNumber = 1;
+      this.playerNumber = 3;
     }
     this.fakePlayer = Math.floor(Math.random() * this.playerNumber) + 1;
     this.selectPlayer(1);
