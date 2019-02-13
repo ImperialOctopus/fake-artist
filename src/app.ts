@@ -1,5 +1,6 @@
 import { Router, RouterConfiguration } from "aurelia-router";
 import { PLATFORM } from "aurelia-pal";
+import "app.scss";
 
 export class App {
   configureRouter(config: RouterConfiguration, router: Router) {
@@ -8,12 +9,14 @@ export class App {
       {
         route: "",
         moduleId: PLATFORM.moduleName("menu"),
+        name: "manu",
         title: "Menu"
       },
       {
         route: "play",
         moduleId: PLATFORM.moduleName("play"),
-        name: "play"
+        name: "play",
+        title: "Play"
       }
     ]);
   }

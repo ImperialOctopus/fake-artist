@@ -1,15 +1,26 @@
-import { Router } from 'aurelia-router';
+import { inject } from "aurelia-framework";
+import { Router } from "aurelia-router";
 
+@inject(Router)
 export class Menu {
-  router;
-  constructor(router) {
+  constructor(private router: Router) {
     this.router = router;
   }
-  header = "Header";
-  playerNumber;
+
+  playerNumber = 1;
   play() {
-    //this.header = this.playerNumber;
-    alert(" ");
-    this.router.navigate('play');
+    this.router.navigateToRoute("play", { playerNumber: this.playerNumber });
+  }
+  info() {}
+
+  numberUp() {
+    if (this.playerNumber < 8) {
+      this.playerNumber += 1;
+    }
+  }
+  numberDown() {
+    if (this.playerNumber > 1) {
+      this.playerNumber -= 1;
+    }
   }
 }

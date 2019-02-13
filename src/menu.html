@@ -1,11 +1,21 @@
 <template>
-  <h1>${header}</h1>
-
-  <input type="text" value.bind="playerNumber" />
-
-  <form submit.trigger="showInfo()">
-    <button type="submit">Info</button>
-  </form>
-
-  <a click.delegate='play()'>play</a>
+  <div class="container">
+    <div class="row">
+      <div class="col s4 center-align" click.delegate="numberDown()">
+        <h1><</h1>
+      </div>
+      <div class="col s4 center-align">
+        <h1>${playerNumber}</h1>
+      </div>
+      <div class="col s4 center-align" click.delegate="numberUp()">
+        <h1>></h1>
+      </div>
+    </div>
+    <div class="row center-align">
+      <a click.delegate="play()">Play</a>
+    </div>
+    <div class="row center-align">
+      <a click.delegate="info()">Info</a>
+    </div>
+  </div>
 </template>
