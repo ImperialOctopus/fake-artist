@@ -4,19 +4,16 @@ import "app.scss";
 
 export class App {
   configureRouter(config: RouterConfiguration, router: Router) {
-    //config.title = "Sponge";
     config.map([
       {
         route: "",
         moduleId: PLATFORM.moduleName("menu"),
-        name: "manu",
-        title: "Menu"
+        name: "menu"
       },
       {
         route: "play",
         moduleId: PLATFORM.moduleName("play"),
-        name: "play",
-        title: "Play"
+        name: "play"
       }
     ]);
   }
