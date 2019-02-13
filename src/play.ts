@@ -28,6 +28,10 @@ export class Play {
     this.wordVisible = false;
   }
 
+  back() {
+    this.router.navigateToRoute("menu");
+  }
+
   selectPlayer(n) {
     if (n < 1) {
       n = this.playerNumber;
