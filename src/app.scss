@@ -12,7 +12,15 @@ html {
 }
 body {
   height: 100%;
-  background-image: url(./background.jpg);
+  background-image: url(background.jpg);
+  background-image: -webkit-image-set(
+    url(background1x.webp) 1x,
+    url(background2x.webp) 2x
+  );
+  background-image: image-set(
+    url(background1x.webp) 1x,
+    url(background2x.webp) 2x
+  );
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
