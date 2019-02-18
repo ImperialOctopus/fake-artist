@@ -17,3 +17,4 @@ A progressive web app written using Angular to replace the gamemaster when playi
 cd fake-artist
 npm install -g @angular/cli
 npm install
+ng build
