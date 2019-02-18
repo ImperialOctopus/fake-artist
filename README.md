@@ -11,3 +11,9 @@ A progressive web app written using Angular to replace the gamemaster when playi
 5. All players vote on who the fake was.
 6. If the fake is not chosen correctly they win.
 7. If the fake is chosen correctly but they guess the prompt word the fake wins, otherwise the other players win.
+
+## Build Instructions
+
+cd fake-artist
+npm install -g @angular/cli
+npm install
