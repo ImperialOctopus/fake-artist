@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "materialize";
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-image: url('background.jpg');
+  background-image: -webkit-image-set(
+    url('background1x.webp') 1x,
+    url('background2x.webp') 2x
+  );
+  background-image: image-set(
+    url('background1x.webp') 1x,
+    url('background2x.webp') 2x
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@mixin centerer {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container {
+  @include centerer;
+}
+.centreNumber {
+  margin: 0;
+  font-size: 40px;
+}
+.playerScrollButton {
+  margin-top: 10px;
+}
