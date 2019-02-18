@@ -1,28 +1,35 @@
 {
-  "category": "Organs",
   "words": [
     {
+      "category": "Organs",
       "word": "Heart"
     },
     {
+      "category": "Organs",
       "word": "Lungs"
     },
     {
+      "category": "Organs",
       "word": "Liver"
     },
     {
+      "category": "Organs",
       "word": "Kidneys"
     },
     {
+      "category": "Organs",
       "word": "Skin"
     },
     {
+      "category": "Organs",
       "word": "Brain"
     },
     {
+      "category": "Organs",
       "word": "Small Intestine"
     },
     {
+      "category": "Organs",
       "word": "Stomach"
     }
   ]

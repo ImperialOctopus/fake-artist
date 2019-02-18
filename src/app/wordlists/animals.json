@@ -1,28 +1,35 @@
 {
-  "category": "Animals",
   "words": [
     {
+      "category": "Animals",
       "word": "Cow"
     },
     {
+      "category": "Animals",
       "word": "Snake"
     },
     {
+      "category": "Animals",
       "word": "Frog"
     },
     {
+      "category": "Animals",
       "word": "Guinea Pig"
     },
     {
+      "category": "Animals",
       "word": "Human"
     },
     {
+      "category": "Animals",
       "word": "Dog"
     },
     {
+      "category": "Animals",
       "word": "Cat"
     },
     {
+      "category": "Animals",
       "word": "Horse"
     }
   ]
