@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Prompt } from '../prompt';
-import { WordlistService } from '../wordlist.service';
+import { Component, OnInit } from "@angular/core";
+import { Prompt } from "../prompt";
+import { WordlistService } from "../wordlist.service";
 import { ActivatedRoute } from "@angular/router";
-import { Router } from '@angular/router';
-
+import { Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-play',
-  templateUrl: './play.component.html',
-  styleUrls: ['./play.component.scss']
+  selector: "app-play",
+  templateUrl: "./play.component.html",
+  styleUrls: ["./play.component.scss"]
 })
 export class PlayComponent implements OnInit {
   prompt: Prompt;
@@ -18,13 +18,18 @@ export class PlayComponent implements OnInit {
   selectedPlayer: number;
   selectedPlayerFake: boolean;
 
-  constructor(private wordlistService: WordlistService, private route: ActivatedRoute, private router: Router) {
-    this.route.params.subscribe( params => {
+  constructor(
+    private wordlistService: WordlistService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {
+    this.route.params.subscribe(params => {
       var p = parseInt(params.n);
       if (Number.isInteger(p) && p >= 3 && p <= 32) {
         this.playerNumber = p;
       }
-     });
+    });
   }
 
   ngOnInit() {
@@ -36,7 +41,7 @@ export class PlayComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/']);
+    this.location.back();
   }
 
   selectPlayer(n) {
