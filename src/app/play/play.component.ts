@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Prompt } from "../prompt";
 import { WordlistService } from "../wordlist.service";
 import { ActivatedRoute } from "@angular/router";
-import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 
 @Component({
@@ -21,7 +20,6 @@ export class PlayComponent implements OnInit {
   constructor(
     private wordlistService: WordlistService,
     private route: ActivatedRoute,
-    private router: Router,
     private location: Location
   ) {
     this.route.params.subscribe(params => {
