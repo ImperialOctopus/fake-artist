@@ -10,7 +10,7 @@ export class WordlistService {
   constructor() {}
 
   generatePrompt(): Prompt {
-    let array: Array<Object> = wordlist;
+    let array: Array<Object> = wordlist.words;
 
     let prompt: Prompt = Object.assign(
       array[Math.floor(Math.random() * array.length)]
