@@ -14,9 +14,9 @@ export class WordlistService {
   generatePrompt(): Prompt {
     let array: Array<Object> = [];
 
-    array = array.concat(animals.words);
-    array = array.concat(food.words);
-    array = array.concat(organs.words);
+    array = array.concat(animals);
+    array = array.concat(food);
+    array = array.concat(organs);
 
     let prompt: Prompt = Object.assign(
       array[Math.floor(Math.random() * array.length)]
