@@ -1,9 +1,7 @@
 import { Prompt } from "./prompt";
 import { Injectable } from "@angular/core";
 
-import * as animals from "./wordlists/animals.json";
-import * as food from "./wordlists/food.json";
-import * as organs from "./wordlists/organs.json";
+import * as wordlist from "./wordlists/wordlist.json";
 
 @Injectable({
   providedIn: "root"
