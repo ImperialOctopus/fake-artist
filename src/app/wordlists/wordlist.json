@@ -1,0 +1,342 @@
+[
+  {
+    "category": "Animals",
+    "word": "Camel"
+  },
+  {
+    "category": "Animals",
+    "word": "Cat"
+  },
+  {
+    "category": "Animals",
+    "word": "Chicken"
+  },
+  {
+    "category": "Animals",
+    "word": "Cow"
+  },
+  {
+    "category": "Animals",
+    "word": "Dog"
+  },
+  {
+    "category": "Animals",
+    "word": "Dolphin"
+  },
+  {
+    "category": "Animals",
+    "word": "Duck"
+  },
+  {
+    "category": "Animals",
+    "word": "Fish"
+  },
+  {
+    "category": "Animals",
+    "word": "Frog"
+  },
+  {
+    "category": "Animals",
+    "word": "Goat"
+  },
+  {
+    "category": "Animals",
+    "word": "Guinea Pig"
+  },
+  {
+    "category": "Animals",
+    "word": "Horse"
+  },
+  {
+    "category": "Animals",
+    "word": "Human"
+  },
+  {
+    "category": "Animals",
+    "word": "Mouse"
+  },
+  {
+    "category": "Animals",
+    "word": "Pig"
+  },
+  {
+    "category": "Animals",
+    "word": "Pigeon"
+  },
+  {
+    "category": "Animals",
+    "word": "Rabbit"
+  },
+  {
+    "category": "Animals",
+    "word": "Sheep"
+  },
+  {
+    "category": "Animals",
+    "word": "Snake"
+  },
+  {
+    "category": "Animals",
+    "word": "Worm"
+  },
+  {
+    "category": "Fruit",
+    "word": "Apple"
+  },
+  {
+    "category": "Fruit",
+    "word": "Banana"
+  },
+  {
+    "category": "Fruit",
+    "word": "Blueberry"
+  },
+  {
+    "category": "Fruit",
+    "word": "Cherry"
+  },
+  {
+    "category": "Fruit",
+    "word": "Lemon"
+  },
+  {
+    "category": "Fruit",
+    "word": "Melon"
+  },
+  {
+    "category": "Fruit",
+    "word": "Orange"
+  },
+  {
+    "category": "Fruit",
+    "word": "Pomegranate"
+  },
+  {
+    "category": "Fruit",
+    "word": "Strawberry"
+  },
+  {
+    "category": "Fruit",
+    "word": "Tomato"
+  },
+  {
+    "category": "Food",
+    "word": "Apple Pie"
+  },
+  {
+    "category": "Food",
+    "word": "Bread"
+  },
+  {
+    "category": "Food",
+    "word": "Cake"
+  },
+  {
+    "category": "Food",
+    "word": "Cheese"
+  },
+  {
+    "category": "Food",
+    "word": "Chicken"
+  },
+  {
+    "category": "Food",
+    "word": "Chocolate"
+  },
+  {
+    "category": "Food",
+    "word": "Doughnut"
+  },
+  {
+    "category": "Food",
+    "word": "Egg"
+  },
+  {
+    "category": "Food",
+    "word": "Ice Cream"
+  },
+  {
+    "category": "Food",
+    "word": "Lobster"
+  },
+  {
+    "category": "Food",
+    "word": "Macaroni Cheese"
+  },
+  {
+    "category": "Food",
+    "word": "Mushrooms"
+  },
+  {
+    "category": "Food",
+    "word": "Pancakes"
+  },
+  {
+    "category": "Food",
+    "word": "Pasta"
+  },
+  {
+    "category": "Food",
+    "word": "Pizza"
+  },
+  {
+    "category": "Food",
+    "word": "Potato"
+  },
+  {
+    "category": "Food",
+    "word": "Rice"
+  },
+  {
+    "category": "Food",
+    "word": "Sandwich"
+  },
+  {
+    "category": "Food",
+    "word": "Sausage"
+  },
+  {
+    "category": "Food",
+    "word": "Steak"
+  },
+  {
+    "category": "Organs",
+    "word": "Bladder"
+  },
+  {
+    "category": "Organs",
+    "word": "Brain"
+  },
+  {
+    "category": "Organs",
+    "word": "Heart"
+  },
+  {
+    "category": "Organs",
+    "word": "Intestines"
+  },
+  {
+    "category": "Organs",
+    "word": "Kidneys"
+  },
+  {
+    "category": "Organs",
+    "word": "Liver"
+  },
+  {
+    "category": "Organs",
+    "word": "Lungs"
+  },
+  {
+    "category": "Organs",
+    "word": "Ovaries"
+  },
+  {
+    "category": "Organs",
+    "word": "Pancreas"
+  },
+  {
+    "category": "Organs",
+    "word": "Stomach"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Book"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Carpet"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Chair"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Comb"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Curtain"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Cushion"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Knife"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Lamp"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Microwave"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Mirror"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Mug"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Table"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Telephone"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Television"
+  },
+  {
+    "category": "Household Objects",
+    "word": "Vase"
+  },
+  {
+    "category": "Clothing",
+    "word": "Socks"
+  },
+  {
+    "category": "Clothing",
+    "word": "Skirt"
+  },
+  {
+    "category": "Clothing",
+    "word": "Trousers"
+  },
+  {
+    "category": "Clothing",
+    "word": "Shoes"
+  },
+  {
+    "category": "Clothing",
+    "word": "Gloves"
+  },
+  {
+    "category": "Clothing",
+    "word": "Hat"
+  },
+  {
+    "category": "Clothing",
+    "word": "Shirt"
+  },
+  {
+    "category": "Clothing",
+    "word": "Tie"
+  },
+  {
+    "category": "Clothing",
+    "word": "Shorts"
+  },
+  {
+    "category": "Clothing",
+    "word": "Scarf"
+  }
+]
