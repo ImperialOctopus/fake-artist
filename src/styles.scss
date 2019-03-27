@@ -1,11 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-
-html {
+html,
+body {
   height: 100%;
+  margin: 0;
 }
 
 body {
-  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   background-image: url("assets/background.jpg");
   background-image: -webkit-image-set(url("assets/background1x.webp") 1x,
     url("assets/background2x.webp") 2x);
@@ -14,34 +20,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-@mixin centerer {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.container {
-  @include centerer;
-}
-
-.centreNumber {
-  margin: 0;
-  font-size: 40px;
-}
-
-.playerScrollButton {
-  margin-top: 10px;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

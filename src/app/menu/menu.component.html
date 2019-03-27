@@ -1,35 +1,13 @@
 <div class="container">
-  <div class="row center-align">
-    <h2>A Fake Artist</h2>
+  <header>
+    <h1>A Fake Artist</h1>
     <h4>Companion App</h4>
-    <p>Select number of players:</p>
-  </div>
-  <div class="row">
-    <div class="row">
-      <div class="col s2 l5 center-align">
-        <a
-          (click)="numberDown()"
-          class="waves-effect waves-light btn-large purple lighten-1"
-          ><</a
-        >
-      </div>
-      <div class="col s8 l2 center-align">
-        <p class="centreNumber">{{playerNumber}}</p>
-      </div>
-      <div class="col s2 l5 center-align">
-        <a
-          (click)="numberUp()"
-          class="waves-effect waves-light btn-large purple lighten-1"
-          >></a
-        >
-      </div>
-    </div>
-    <div class="row center-align">
-      <a
-        (click)="play()"
-        class="waves-effect waves-light btn-large center-align purple lighten-1"
-        >play</a
-      >
-    </div>
-  </div>
+  </header>
+  <main>
+    <span class="instructions">Select number of players:</p>
+      <a (click)="numberDown()" class="">Down</a>
+      <span class="centreNumber">{{playerNumber}}</p>
+        <a (click)="numberUp()" class="waves-effect waves-light btn-large purple lighten-1">Up</a>
+        <a (click)="play()" class="waves-effect waves-light btn-large center-align purple lighten-1">play</a>
+  </main>
 </div>
