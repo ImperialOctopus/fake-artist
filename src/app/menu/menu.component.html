@@ -3,9 +3,9 @@
     <h1>A Fake Artist</h1>
     <h2>Companion App</h2>
   </header>
-  <button mat-raised-button color="primary">Settings</button>
+
   <main>
-    <div class="playerNumber">
+    <div *ngIf="!online" class="playerNumber">
       <span class="instructions">Select number of players:</span>
       <div class="buttons">
         <button mat-icon-button color="primary" (click)="numberDown()">
@@ -18,12 +18,13 @@
       </div>
     </div>
 
-    <div class="roomName">
+    <div *ngIf="online" class="roomName">
       <span class="instructions">Enter room name:</span>
     </div>
 
-    <button mat-raised-button color="primary" (click)="play()">Play</button>
-    <button mat-raised-button color="primary">Join</button>
-    <button mat-raised-button color="primary">Create</button>
+    <button *ngIf="!online" mat-raised-button color="primary" (click)="play()">Play Offline</button>
+    <button *ngIf="online" mat-raised-button color="primary">Join</button>
+    <button *ngIf="online" mat-raised-button color="primary">Create</button><br />
+    <button mat-raised-button color="primary" (click)="switchMode()">Switch Mode</button>
   </main>
 </div>

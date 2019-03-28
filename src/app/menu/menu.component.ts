@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-menu',
@@ -8,11 +10,16 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   playerNumber: number;
+  online: boolean;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.playerNumber = 3;
+    this.online = false;
   }
 
   play() {
@@ -28,5 +35,20 @@ export class MenuComponent implements OnInit {
     if (this.playerNumber > 3) {
       this.playerNumber -= 1;
     }
+  }
+
+  switchMode() {
+    this.online = !this.online;
+  }
+
+  openSettings() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = { online: this.online };
+    console.log(dialogConfig);
+    const dialogRef = this.dialog.open(SettingsComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.online = result;
+    });
   }
 }
