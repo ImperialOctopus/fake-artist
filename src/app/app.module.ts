@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { PlayOfflineComponent } from './play-offline/play-offline.component';
 import { PlayOnlineComponent } from './play-online/play-online.component';
-import { SettingsComponent } from './settings/settings.component';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -18,21 +17,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
 
 const appRoutes: Routes = [
   { path: '', component: MenuComponent },
-  { path: 'play/:n', component: PlayOfflineComponent },
-  { path: 'online/:n', component: PlayOnlineComponent },
+  { path: 'play', component: PlayOfflineComponent },
+  { path: 'online', component: PlayOnlineComponent },
   { path: '**', component: MenuComponent }
 ];
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, PlayOfflineComponent, SettingsComponent, PlayOnlineComponent],
+  declarations: [AppComponent, MenuComponent, PlayOfflineComponent, PlayOnlineComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
-    MatButtonModule, MatIconModule, MatDialogModule, MatSlideToggleModule],
+    MatButtonModule, MatIconModule, MatDialogModule, MatSlideToggleModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SettingsComponent]
+  entryComponents: []
 })
 export class AppModule { }

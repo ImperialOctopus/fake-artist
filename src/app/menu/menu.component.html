@@ -19,12 +19,12 @@
     </div>
 
     <div *ngIf="online" class="roomName">
-      <span class="instructions">Enter room name:</span>
-    </div>
-
-    <button *ngIf="!online" mat-raised-button color="primary" (click)="play()">Play Offline</button>
-    <button *ngIf="online" mat-raised-button color="primary">Join</button>
-    <button *ngIf="online" mat-raised-button color="primary">Create</button><br />
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Room name">
+      </mat-form-field>
+    </div> <button *ngIf="!online" mat-raised-button color="primary" (click)="playOffline()">Play Offline</button>
+    <button *ngIf="online" mat-raised-button color="primary" (click)="onlineJoin()">Join</button>
+    <button *ngIf="online" mat-raised-button color="primary" (click)="onlineCreate()">Create</button><br />
     <button mat-raised-button color="primary" (click)="switchMode()">Switch Mode</button>
   </main>
 </div>

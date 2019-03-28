@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-menu',
@@ -10,22 +8,24 @@ import { SettingsComponent } from '../settings/settings.component';
 })
 export class MenuComponent implements OnInit {
   playerNumber: number;
+  roomName: string;
   online: boolean;
 
   constructor(
-    private router: Router,
-    private dialog: MatDialog
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.playerNumber = 3;
     this.online = false;
   }
-
-  play() {
-    this.router.navigate(['/play', this.playerNumber]);
+  switchMode() {
+    this.online = !this.online;
   }
 
+  playOffline() {
+    this.router.navigate(['/play', { n: this.playerNumber }]);
+  }
   numberUp() {
     if (this.playerNumber < 32) {
       this.playerNumber += 1;
@@ -37,10 +37,14 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  switchMode() {
-    this.online = !this.online;
+  onlineJoin() {
+    this.router.navigate(['/online', { host: false, name: this.roomName }]);
+  }
+  onlineCreate() {
+    this.router.navigate(['/online', { host: true, name: this.roomName }]);
   }
 
+  /*
   openSettings() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
@@ -51,4 +55,6 @@ export class MenuComponent implements OnInit {
       this.online = result;
     });
   }
+  */
+
 }
