@@ -8,11 +8,11 @@
     <div class="playerNumber">
       <span class="instructions">Select number of players:</span>
       <div class="buttons">
-        <button (click)="numberDown()" mat-icon-button color="primary">
+        <button mat-icon-button color="primary" (click)="numberDown()">
           <mat-icon>remove</mat-icon>
         </button>
         <span>{{playerNumber}}</span>
-        <button (click)="numberUp()" mat-icon-button color="primary">
+        <button mat-icon-button color="primary" (click)="numberUp()">
           <mat-icon>add</mat-icon>
         </button>
       </div>
@@ -22,8 +22,8 @@
       <span class="instructions">Enter room name:</span>
     </div>
 
-    <a (click)="play()" class="">Play</a>
-    <a class="button">Join</a>
-    <a class="button">Create</a>
+    <button mat-raised-button color="primary" (click)="play()">Play</button>
+    <button mat-raised-button color="primary">Join</button>
+    <button mat-raised-button color="primary">Create</button>
   </main>
 </div>
