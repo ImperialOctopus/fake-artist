@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { Prompt } from "../prompt";
-import { WordlistService } from "../wordlist.service";
-import { ActivatedRoute } from "@angular/router";
-import { Location } from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { Prompt } from '../prompt';
+import { WordlistService } from '../wordlist.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: "app-play",
-  templateUrl: "./play.component.html",
-  styleUrls: ["./play.component.scss"]
+  selector: 'app-play-offline',
+  templateUrl: './play-offline.component.html',
+  styleUrls: ['./play-offline.component.scss']
 })
-export class PlayComponent implements OnInit {
+export class PlayOfflineComponent implements OnInit {
   prompt: Prompt;
-  playerNumber: number = 3;
+  playerNumber = 3;
   fakePlayer: number;
   wordVisible: boolean;
   selectedPlayer: number;
@@ -23,7 +23,7 @@ export class PlayComponent implements OnInit {
     private location: Location
   ) {
     this.route.params.subscribe(params => {
-      var p = parseInt(params.n);
+      const p = parseInt(params.n, 10);
       if (Number.isInteger(p) && p >= 3 && p <= 32) {
         this.playerNumber = p;
       }
@@ -49,7 +49,7 @@ export class PlayComponent implements OnInit {
       n = 1;
     }
     this.selectedPlayer = n;
-    this.selectedPlayerFake = this.selectedPlayer == this.fakePlayer;
+    this.selectedPlayerFake = this.selectedPlayer === this.fakePlayer;
   }
   nextPlayer() {
     this.selectPlayer(this.selectedPlayer + 1);

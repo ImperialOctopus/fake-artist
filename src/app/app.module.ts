@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { PlayComponent } from './play/play.component';
+import { PlayOfflineComponent } from './play-offline/play-offline.component';
+import { PlayOnlineComponent } from './play-online/play-online.component';
 import { SettingsComponent } from './settings/settings.component';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -18,15 +19,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-
 const appRoutes: Routes = [
   { path: '', component: MenuComponent },
-  { path: 'play/:n', component: PlayComponent },
+  { path: 'play/:n', component: PlayOfflineComponent },
+  { path: 'online/:n', component: PlayOnlineComponent },
   { path: '**', component: MenuComponent }
 ];
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, PlayComponent, SettingsComponent],
+  declarations: [AppComponent, MenuComponent, PlayOfflineComponent, SettingsComponent, PlayOnlineComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
     MatButtonModule, MatIconModule, MatDialogModule, MatSlideToggleModule],
