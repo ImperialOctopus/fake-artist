@@ -1,14 +1,35 @@
-.centreNumber {
-  margin: 0;
-  font-size: 40px;
-}
-
-.playerScrollButton {
-  margin-top: 10px;
-}
-
 .container {
-  width: 90%;
-  max-width: 1000px;
+  width: 100%;
   margin: auto;
+  max-width: 768px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  margin-bottom: 0;
+}
+h2 {
+  margin-top: 0;
+}
+
+.instructions {
+  font-size: 2rem;
+}
+
+.playerNumber {
+  .buttons {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+.roomName {
+
 }

@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+$font-family: Roboto, "Helvetica Neue", sans-serif;
+
 html,
 body {
   height: 100%;
@@ -11,7 +12,7 @@ body {
   -moz-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: $font-family;
   background-image: url("assets/background.jpg");
   background-image: -webkit-image-set(url("assets/background1x.webp") 1x,
     url("assets/background2x.webp") 2x);
@@ -20,7 +21,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  text-align: center;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
 }

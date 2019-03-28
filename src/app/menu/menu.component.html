@@ -1,13 +1,25 @@
 <div class="container">
   <header>
     <h1>A Fake Artist</h1>
-    <h4>Companion App</h4>
+    <h2>Companion App</h2>
   </header>
+  <a class="button">Settings</a>
   <main>
-    <span class="instructions">Select number of players:</p>
-      <a (click)="numberDown()" class="">Down</a>
-      <span class="centreNumber">{{playerNumber}}</p>
-        <a (click)="numberUp()" class="waves-effect waves-light btn-large purple lighten-1">Up</a>
-        <a (click)="play()" class="waves-effect waves-light btn-large center-align purple lighten-1">play</a>
+    <div class="playerNumber">
+      <span class="instructions">Select number of players:</span>
+      <div class="buttons">
+        <a (click)="numberDown()">Down</a>
+        <span>{{playerNumber}}</span>
+        <a (click)="numberUp()">Up</a>
+      </div>
+    </div>
+
+    <div class="roomName">
+      <span class="instructions">Enter room name:</span>
+    </div>
+
+    <a (click)="play()" class="">Play</a>
+    <a class="button">Join</a>
+    <a class="button">Create</a>
   </main>
 </div>
