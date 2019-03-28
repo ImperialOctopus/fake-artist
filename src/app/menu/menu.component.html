@@ -3,14 +3,18 @@
     <h1>A Fake Artist</h1>
     <h2>Companion App</h2>
   </header>
-  <a class="button">Settings</a>
+  <button mat-raised-button color="primary">Settings</button>
   <main>
     <div class="playerNumber">
       <span class="instructions">Select number of players:</span>
       <div class="buttons">
-        <a (click)="numberDown()">Down</a>
+        <button (click)="numberDown()" mat-icon-button color="primary">
+          <mat-icon>remove</mat-icon>
+        </button>
         <span>{{playerNumber}}</span>
-        <a (click)="numberUp()">Up</a>
+        <button (click)="numberUp()" mat-icon-button color="primary">
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
     </div>
 

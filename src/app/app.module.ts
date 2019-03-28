@@ -9,6 +9,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 const appRoutes: Routes = [
   { path: '', component: MenuComponent },
   { path: 'play/:n', component: PlayComponent },
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, MenuComponent, PlayComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
-    { enabled: environment.production }), BrowserAnimationsModule],
+    { enabled: environment.production }), BrowserAnimationsModule,
+    MatButtonModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent]
 })
