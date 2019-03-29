@@ -3,15 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { PlayOfflineComponent } from './play-offline/play-offline.component';
 import { PlayOnlineComponent } from './play-online/play-online.component';
-
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   declarations: [AppComponent, MenuComponent, PlayOfflineComponent, PlayOnlineComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
+    AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule,
     MatButtonModule, MatIconModule, MatDialogModule, MatSlideToggleModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
