@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
     this.playerNumber = 3;
     this.online = false;
     this.formState = 0;
-    this.roomName = "";
+    this.roomName = '';
   }
 
   numberUp() {
@@ -38,25 +38,25 @@ export class MenuComponent implements OnInit {
   playOffline() {
     this.router.navigate(['/play', { n: this.playerNumber }]);
   }
-  
+
   join() {
-    this.router.navigate(['/online', { host: false, name: this.roomName }]);
+    this.router.navigate(['/online', { host: '0', name: this.roomName }]);
   }
   hostSettings() {
     this.formState = 2;
   }
-  
+
   hostCancel() {
     this.formState = 1;
   }
   host() {
-    this.router.navigate(['/online', { host: true, name: this.roomName, n: this.playerNumber }]);
+    this.router.navigate(['/online', { host: '1', name: this.roomName, n: this.playerNumber }]);
   }
-  
+
   switchMode() {
-    if (this.formState == 0) {
+    if (this.formState === 0) {
       this.formState = 1;
-    } else if (this.formState == 1) {
+    } else if (this.formState === 1) {
       this.formState = 0;
     }
   }

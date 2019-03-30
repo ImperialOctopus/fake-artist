@@ -1,3 +1,21 @@
-<p>
-  play-online works!
-</p>
+<div class="container">
+  <div class="row center-align">
+    <h1>{{prompt.category}}</h1>
+  </div>
+  <div class="card purple lighten-1" (click)="toggleWord()">
+    <div class="card-content white-text">
+      <span class="card-title">
+        <div *ngIf="!wordVisible">
+          Show Word
+        </div>
+        <div *ngIf="wordVisible">
+          <b>
+            {{player == fake ? "FAKE" : prompt.word}}
+          </b>
+        </div>
+      </span>
+    </div>
+  </div>
+  <p class="centreNumber">{{player}} / {{playerNumber}}</p>
+  <button (click)="back()" mat-raised-button color="primary">Back</button>
+</div>
