@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   playerNumber: number;
   roomName: string;
+  formState: number;
+
   online: boolean;
 
   constructor(
@@ -18,14 +20,10 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.playerNumber = 3;
     this.online = false;
-  }
-  switchMode() {
-    this.online = !this.online;
+    this.formState = 0;
+    this.roomName = "";
   }
 
-  playOffline() {
-    this.router.navigate(['/play', { n: this.playerNumber }]);
-  }
   numberUp() {
     if (this.playerNumber < 32) {
       this.playerNumber += 1;
@@ -37,24 +35,29 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  onlineJoin() {
+  playOffline() {
+    this.router.navigate(['/play', { n: this.playerNumber }]);
+  }
+  
+  join() {
     this.router.navigate(['/online', { host: false, name: this.roomName }]);
   }
-  onlineCreate() {
-    this.router.navigate(['/online', { host: true, name: this.roomName }]);
+  hostSettings() {
+    this.formState = 2;
   }
-
-  /*
-  openSettings() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = false;
-    dialogConfig.data = { online: this.online };
-    console.log(dialogConfig);
-    const dialogRef = this.dialog.open(SettingsComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      this.online = result;
-    });
+  
+  hostCancel() {
+    this.formState = 1;
   }
-  */
-
+  host() {
+    this.router.navigate(['/online', { host: true, name: this.roomName, n: this.playerNumber }]);
+  }
+  
+  switchMode() {
+    if (this.formState == 0) {
+      this.formState = 1;
+    } else if (this.formState == 1) {
+      this.formState = 0;
+    }
+  }
 }

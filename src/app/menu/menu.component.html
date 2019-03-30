@@ -5,7 +5,7 @@
   </header>
 
   <main>
-    <div *ngIf="!online" class="playerNumber">
+    <div *ngIf="formState != 1" class="playerNumber">
       <span class="instructions">Select number of players:</span>
       <div class="buttons">
         <button mat-icon-button color="primary" (click)="numberDown()">
@@ -17,14 +17,23 @@
         </button>
       </div>
     </div>
-
-    <div *ngIf="online" class="roomName">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Room name">
+    <div *ngIf="formState == 1" class="roomName">
+      <mat-form-field appearance="fill">
+        <mat-label>Room name</mat-label>
+        <input matInput [(ngModel)]="roomName" autocomplete="off">
       </mat-form-field>
-    </div> <button *ngIf="!online" mat-raised-button color="primary" (click)="playOffline()">Play Offline</button>
-    <button *ngIf="online" mat-raised-button color="primary" (click)="onlineJoin()">Join</button>
-    <button *ngIf="online" mat-raised-button color="primary" (click)="onlineCreate()">Create</button><br />
-    <button mat-raised-button color="primary" (click)="switchMode()">Switch Mode</button>
+    </div>
+    <button *ngIf="formState == 0" mat-raised-button color="primary" (click)="playOffline()">Play Offline</button>
+    <div *ngIf="formState == 1">
+      <button mat-raised-button color="primary" (click)="join()">Join</button>
+      <button mat-raised-button color="primary" (click)="hostSettings()">Create</button>
+    </div>
+    <div *ngIf="formState == 2">
+      <button mat-raised-button color="primary" (click)="hostCancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="host()">Confirm</button>
+    </div>
+    <div *ngIf="formState != 2">
+      <button mat-raised-button color="primary" (click)="switchMode()">Switch Mode</button>
+    </div>
   </main>
 </div>
