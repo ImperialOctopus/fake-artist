@@ -8,7 +8,21 @@ export class DatabaseService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  getPolicies() {
-    return this.firestore.collection('policies').snapshotChanges();
+  room = 'test';
+
+  create() {
+    this.firestore.collection('rooms').doc(this.room).set({
+      category: 'Colours',
+      fake: 4,
+      playerLimit: 6,
+      players: 3,
+      word: 'Red'
+    })
+      .then(() => {
+        console.log('Document successfully written!');
+      })
+      .catch((error) => {
+        console.error('Error writing document: ', error);
+      });
   }
 }

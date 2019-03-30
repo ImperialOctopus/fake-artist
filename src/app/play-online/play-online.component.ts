@@ -3,6 +3,7 @@ import { Prompt } from '../prompt';
 import { WordlistService } from '../wordlist.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-play-online',
@@ -15,6 +16,7 @@ export class PlayOnlineComponent implements OnInit {
 
   constructor(
     private wordlistService: WordlistService,
+    private database: DatabaseService,
     private route: ActivatedRoute,
     private location: Location
   ) {
@@ -25,7 +27,7 @@ export class PlayOnlineComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.database.create();
   }
 
   back() {
