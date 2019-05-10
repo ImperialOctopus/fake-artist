@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row center-align">
+    <h1>{{prompt.category}}</h1>
+  </div>
+  <div (click)="toggleWord()">
+    <span>
+      <div *ngIf="!wordVisible">
+        Show Word
+      </div>
+      <div *ngIf="wordVisible">
+        <b>
+          {{thisPlayer == fakePlayer ? "FAKE" : prompt.word}}
+        </b>
+      </div>
+    </span>
+  </div>
+  <p class="centreNumber">{{thisPlayer}} / {{totalPlayers}}</p>
+  <button (click)="back()" mat-raised-button color="primary">Back</button>
+</div>

@@ -11,8 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { PlayOfflineComponent } from './play-offline/play-offline.component';
-import { PlayOnlineComponent } from './play-online/play-online.component';
+import { PlayComponent } from './play/play.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,13 +21,12 @@ import { MatInputModule } from '@angular/material/input';
 
 const appRoutes: Routes = [
   { path: '', component: MenuComponent },
-  { path: 'play', component: PlayOfflineComponent },
-  { path: 'online', component: PlayOnlineComponent },
+  { path: 'play', component: PlayComponent },
   { path: '**', component: MenuComponent }
 ];
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, PlayOfflineComponent, PlayOnlineComponent],
+  declarations: [AppComponent, MenuComponent, PlayComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule,
