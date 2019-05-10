@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WordlistService } from '../wordlist.service';
 import { DatabaseService } from '../database.service';
+import { Prompt } from '../prompt';
 
 @Component({
   selector: 'app-menu',
@@ -60,27 +61,20 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/play', { o: true, f, n, w: p.word, c: p.category, i }]);
   }
   playOnlineJoin() {
-    let r = this.roomName;  // Room name
-    let f;                  // Fake player
-    let n;                  // Total players
-    let p;                  // Prompt
-    let i;                  // This player's number
-
-    if (this.roomName === '') {
-      this.roomName = 'blank';
-    }
+    const r: string = (this.roomName === '') ? 'blank' : this.roomName;  // Room name
+    let f: number;                  // Fake player
+    let n: number;                  // Total players
+    let p: Prompt;                  // Prompt
+    let i: number;                  // This player's number
 
     this.database.getRoomInfo(r).then((roomInfo) => {
-      p = roomInfo[0];
-      f = roomInfo[1];
-      i = roomInfo[2];
-      this.database.join(r, i).then((playerN) => {
+      p = roomInfo[0];  // Prompt
+      f = roomInfo[1];  // Fake
+      n = roomInfo[2];  // Total players
+      this.database.join(r, n).then((playerN) => {
         i = playerN;
-        if (playerN === 0) {
-          r = 'Error Joining Room';
-        }
+        this.router.navigate(['/play', { o: true, f, n, w: p.word, c: p.category, i }]);
       });
     });
-    this.router.navigate(['/play', { o: true, f, n, p, i }]);
   }
 }

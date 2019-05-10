@@ -28,19 +28,34 @@ export class PlayComponent implements OnInit {
   ) {
     this.route.params.subscribe(params => {
       this.online = params.o;
-      this.fakePlayer = params.f;
-      this.totalPlayers = params.n;
+      this.fakePlayer = parseInt(params.f, 10);
+      this.totalPlayers = parseInt(params.n, 10);
       this.prompt = new Prompt(params.c, params.w);
-      this.thisPlayer = params.i;
+      this.thisPlayer = parseInt(params.i, 10);
     });
   }
 
   ngOnInit() {
-
+    console.log(this.prompt.word);
   }
 
   toggleWord() {
     this.wordVisible = !this.wordVisible;
+  }
+
+  numberUp() {
+    if (this.thisPlayer < this.totalPlayers) {
+      this.thisPlayer += 1;
+    } else if (this.thisPlayer === this.totalPlayers) {
+      this.thisPlayer = 1;
+    }
+  }
+  numberDown() {
+    if (this.thisPlayer > 0) {
+      this.thisPlayer -= 1;
+    } else if (this.thisPlayer === 0) {
+      this.thisPlayer = this.totalPlayers;
+    }
   }
 
   back() {

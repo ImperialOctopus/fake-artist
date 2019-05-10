@@ -14,6 +14,16 @@
       </div>
     </span>
   </div>
-  <p class="centreNumber">{{thisPlayer}} / {{totalPlayers}}</p>
-  <button (click)="back()" mat-raised-button color="primary">Back</button>
+  <div class="playerNumber">
+    <button mat-icon-button color="primary" (click)="numberDown()" *ngIf="!online">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <span>{{thisPlayer}} / {{totalPlayers}}</span>
+    <button mat-icon-button color="primary" (click)="numberUp()" *ngIf="!online">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div class="backButton">
+    <button (click)="back()" mat-raised-button color="primary">Back</button>
+  </div>
 </div>
