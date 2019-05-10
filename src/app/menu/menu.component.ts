@@ -37,42 +37,44 @@ export class MenuComponent implements OnInit {
   playOffline() {
     const r = 'Offline';
     const f = Math.floor(Math.random() * this.playerNumber) + 1;
+    const n = this.playerNumber;
     const p = this.wordlistService.generatePrompt();
+    const i = 0;
 
-    this.router.navigate(['/play', { n: this.playerNumber }]);
+    this.router.navigate(['/play', { r, f, n, p, i }]);
   }
   playOnlineCreate() {
     const r = this.roomName;
     const f = Math.floor(Math.random() * this.playerNumber) + 1;
+    const n = this.playerNumber;
     const p = this.wordlistService.generatePrompt();
+    const i = 1;
 
     this.database.create(
       this.roomName,
       Math.floor(Math.random() * this.playerNumber) + 1,
       this.playerNumber,
       this.wordlistService.generatePrompt());
-
-    this.router.navigate(['/play', { name: this.roomName, n: this.playerNumber }]);
+    this.router.navigate(['/play', { r, f, n, p, i }]);
   }
   playOnlineJoin() {
-    const r = this.roomName;
-    const f = Math.floor(Math.random() * this.playerNumber) + 1;
-    const p = this.wordlistService.generatePrompt();
+    let r = this.roomName;  // Room name
+    let f;                  // Fake player
+    let n;                  // Total players
+    let p;                  // Prompt
+    let i;                  // This player's number
 
-    this.database.getRoomInfo(this.roomName).then((roomInfo) => {
-      console.log(roomInfo);
-      this.prompt = roomInfo[0];
-      this.fake = roomInfo[1];
-      this.playerNumber = roomInfo[2];
-      this.database.join(this.roomName, this.playerNumber).then((n) => {
-        this.player = n;
-        if (n === 0) {
-          this.roomName = 'Error Joining Room';
-          this.prompt.category = 'Error joining room';
-          this.prompt.word = '';
+    this.database.getRoomInfo(r).then((roomInfo) => {
+      p = roomInfo[0];
+      f = roomInfo[1];
+      n = roomInfo[2];
+      this.database.join(r, n).then((playerN) => {
+        i = playerN;
+        if (playerN === 0) {
+          r = 'Error Joining Room';
         }
       });
     });
-    this.router.navigate(['/play', { host: '0', name: this.roomName }]);
+    this.router.navigate(['/play', { r, f, n, p, i }]);
   }
 }

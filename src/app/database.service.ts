@@ -10,7 +10,7 @@ export class DatabaseService {
 
   constructor(private db: AngularFirestore) { }
 
-  create(roomName, fake, playerNumber, prompt: Prompt) {
+  create(roomName, fake, playerNumber, prompt: Prompt): void {
     this.db.collection('rooms').doc(roomName).set({
       category: prompt.category,
       fake,
