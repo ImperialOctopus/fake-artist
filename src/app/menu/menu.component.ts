@@ -41,7 +41,7 @@ export class MenuComponent implements OnInit {
     const p = this.wordlistService.generatePrompt();
     const i = 1;
 
-    this.router.navigate(['/play', { o: false, f, n, p, i }]);
+    this.router.navigate(['/play', { o: 0, f, n, w: p.word, c: p.category, i }]);
   }
   playOnlineCreate() {
     const f = Math.floor(Math.random() * this.playerNumber) + 1;
@@ -58,7 +58,7 @@ export class MenuComponent implements OnInit {
       Math.floor(Math.random() * n) + 1,
       n,
       p);
-    this.router.navigate(['/play', { o: true, f, n, w: p.word, c: p.category, i }]);
+    this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
   }
   playOnlineJoin() {
     const r: string = (this.roomName === '') ? 'blank' : this.roomName;  // Room name
@@ -73,7 +73,7 @@ export class MenuComponent implements OnInit {
       n = roomInfo[2];  // Total players
       this.database.join(r, n).then((playerN) => {
         i = playerN;
-        this.router.navigate(['/play', { o: true, f, n, w: p.word, c: p.category, i }]);
+        this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
       });
     });
   }

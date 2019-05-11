@@ -27,7 +27,7 @@ export class PlayComponent implements OnInit {
     private location: Location
   ) {
     this.route.params.subscribe(params => {
-      this.online = params.o;
+      this.online = (params.o === '1');
       this.fakePlayer = parseInt(params.f, 10);
       this.totalPlayers = parseInt(params.n, 10);
       this.prompt = new Prompt(params.c, params.w);
@@ -37,6 +37,7 @@ export class PlayComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.prompt.word);
+
   }
 
   toggleWord() {
@@ -49,6 +50,7 @@ export class PlayComponent implements OnInit {
     } else if (this.thisPlayer === this.totalPlayers) {
       this.thisPlayer = 1;
     }
+    this.wordVisible = false;
   }
   numberDown() {
     if (this.thisPlayer > 0) {
@@ -56,6 +58,7 @@ export class PlayComponent implements OnInit {
     } else if (this.thisPlayer === 0) {
       this.thisPlayer = this.totalPlayers;
     }
+    this.wordVisible = false;
   }
 
   back() {
