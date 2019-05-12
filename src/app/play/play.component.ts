@@ -1,9 +1,7 @@
 import { Prompt } from '../prompt';
 import { Component, OnInit } from '@angular/core';
-import { WordlistService } from '../wordlist.service';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DatabaseService } from '../database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-play',
@@ -11,7 +9,6 @@ import { DatabaseService } from '../database.service';
   styleUrls: ['./play.component.scss']
 })
 export class PlayComponent implements OnInit {
-
   online: boolean;
   fakePlayer: number;
   totalPlayers: number;
@@ -20,24 +17,18 @@ export class PlayComponent implements OnInit {
 
   wordVisible: boolean;
 
-  constructor(
-    private wordlistService: WordlistService,
-    private database: DatabaseService,
-    private route: ActivatedRoute,
-    private location: Location
-  ) {
-    this.route.params.subscribe(params => {
-      this.online = (params.o === '1');
-      this.fakePlayer = parseInt(params.f, 10);
-      this.totalPlayers = parseInt(params.n, 10);
-      this.prompt = new Prompt(params.c, params.w);
-      this.thisPlayer = parseInt(params.i, 10);
-    });
-  }
+  constructor(private location: Location, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.prompt.word);
+    this.online = window.history.state.online;
+    this.fakePlayer = window.history.state.fake;
+    this.totalPlayers = window.history.state.totalPlayers;
+    this.prompt = window.history.state.prompt;
+    this.thisPlayer = window.history.state.thisPlayer;
 
+    if (this.online === undefined) {
+      this.back();
+    }
   }
 
   toggleWord() {
@@ -62,6 +53,6 @@ export class PlayComponent implements OnInit {
   }
 
   back() {
-    this.location.back();
+    this.router.navigateByUrl('/');
   }
 }
