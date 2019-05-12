@@ -12,6 +12,7 @@ import { Prompt } from '../prompt';
 export class MenuComponent implements OnInit {
   playerNumber: number;
   roomName: string;
+  errorMessage: string;
 
   constructor(
     private wordlistService: WordlistService,
@@ -60,21 +61,17 @@ export class MenuComponent implements OnInit {
       p);
     this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
   }
-  playOnlineJoin() {
-    const r: string = (this.roomName === '') ? 'blank' : this.roomName;  // Room name
-    let f: number;                  // Fake player
-    let n: number;                  // Total players
-    let p: Prompt;                  // Prompt
-    let i: number;                  // This player's number
-
-    this.database.getRoomInfo(r).then((roomInfo) => {
-      p = roomInfo[0];  // Prompt
-      f = roomInfo[1];  // Fake
-      n = roomInfo[2];  // Total players
-      this.database.join(r, n).then((playerN) => {
-        i = playerN;
-        this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
-      });
-    });
+  async playOnlineJoin() {
+    const room: string = (this.roomName === '') ? 'blank' : this.roomName;  // Room name
+    try {
+      const roomInfo = await this.database.getRoomInfo(room);
+      const prompt = roomInfo[0];  // Prompt
+      const fake = roomInfo[1];  // Fake
+      const totalPlayers = roomInfo[2];  // Total players
+      const thisPlayer = await this.database.join(room, totalPlayers);
+      this.router.navigate(['/play', { o: 1, fake, totalPlayers, w: prompt.word, c: prompt.category, thisPlayer }]);
+    } catch (error) {
+      this.errorMessage = error;
+    }
   }
 }

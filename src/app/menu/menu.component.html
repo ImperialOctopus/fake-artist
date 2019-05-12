@@ -22,6 +22,9 @@
       <input matInput [(ngModel)]="roomName" autocomplete="off">
     </mat-form-field>
   </div>
+  <div class="error">
+    <span>{{errorMessage}}</span>
+  </div>
   <div class="buttons">
     <button mat-raised-button color="primary" (click)="playOnlineJoin()">Join</button>
     <button mat-raised-button color="primary" (click)="playOnlineCreate()">Create</button>

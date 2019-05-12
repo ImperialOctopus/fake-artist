@@ -37,3 +37,11 @@ header {
     margin-right: 10px;
   }
 }
+.error {
+  span {
+    color: red;
+    font-weight: bold;
+  }
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
