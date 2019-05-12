@@ -40,7 +40,7 @@ export class MenuComponent implements OnInit {
     const totalPlayers = this.playerNumber;
     const prompt = this.wordlistService.generatePrompt();
 
-    this.router.navigate(['/play', { o: 0, f: fake, n: totalPlayers, w: prompt.word, c: prompt.category, i: 1 }]);
+    this.router.navigateByUrl('/play', { state: { online: false, fake, totalPlayers, prompt, thisPlayer: 1 } });
   }
   async playOnlineCreate() {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;
@@ -51,7 +51,7 @@ export class MenuComponent implements OnInit {
 
     try {
       await this.database.create(room, fake, totalPlayers, prompt);
-      this.router.navigate(['/play', { o: 1, f: fake, n: totalPlayers, w: prompt.word, c: prompt.category, i: 1 }]);
+      this.router.navigateByUrl('/play', { state: { online: true, fake, totalPlayers, prompt, thisPlayer: 1 } });
     } catch (error) {
       this.errorMessage = error;
     }
@@ -62,8 +62,9 @@ export class MenuComponent implements OnInit {
     try {
       const roomInfo = await this.database.getRoomInfo(room);
       const thisPlayer = await this.database.join(room, roomInfo.limit);
-      this.router.navigate(['/play',
-        { o: 1, f: roomInfo.fake, n: roomInfo.limit, w: roomInfo.prompt.word, c: roomInfo.prompt.category, i: thisPlayer }]);
+      this.router.navigateByUrl('/play', {
+        state: { online: true, fake: roomInfo.fake, totalPlayers: roomInfo.limit, prompt: roomInfo.prompt, thisPlayer }
+      });
     } catch (error) {
       this.errorMessage = error;
     }
