@@ -36,44 +36,40 @@ export class MenuComponent implements OnInit {
   }
 
   async playOffline() {
-    const f = Math.floor(Math.random() * this.playerNumber) + 1;
-    const n = this.playerNumber;
-    const p = this.wordlistService.generatePrompt();
-    const i = 1;
+    const fake = this.generateFake(this.playerNumber);
+    const totalPlayers = this.playerNumber;
+    const prompt = this.wordlistService.generatePrompt();
 
-    this.router.navigate(['/play', { o: 0, f, n, w: p.word, c: p.category, i }]);
+    this.router.navigate(['/play', { o: 0, f: fake, n: totalPlayers, w: prompt.word, c: prompt.category, i: 1 }]);
   }
   async playOnlineCreate() {
-    const f = Math.floor(Math.random() * this.playerNumber) + 1;
-    const n = this.playerNumber;
-    const p = this.wordlistService.generatePrompt();
-    const i = 1;
-    if (this.roomName === '') {
-      this.roomName = 'blank';
-    }
+    const room: string = (this.roomName === '') ? 'blank' : this.roomName;
+
+    const fake = this.generateFake(this.playerNumber);
+    const totalPlayers = this.playerNumber;
+    const prompt = this.wordlistService.generatePrompt();
 
     try {
-      await this.database.create(
-        this.roomName,
-        f,
-        n,
-        p);
-      this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
+      await this.database.create(room, fake, totalPlayers, prompt);
+      this.router.navigate(['/play', { o: 1, f: fake, n: totalPlayers, w: prompt.word, c: prompt.category, i: 1 }]);
     } catch (error) {
       this.errorMessage = error;
     }
   }
   async playOnlineJoin() {
-    const room: string = (this.roomName === '') ? 'blank' : this.roomName;  // Room name
+    const room: string = (this.roomName === '') ? 'blank' : this.roomName;
+
     try {
-      const roomInfo = this.database.getRoomInfo(room);
-      const prompt = roomInfo[0];  // Prompt
-      const fake = roomInfo[1];  // Fake
-      const totalPlayers = roomInfo[2];  // Total players
-      const thisPlayer = await this.database.join(room, totalPlayers);
-      this.router.navigate(['/play', { o: 1, fake, totalPlayers, w: prompt.word, c: prompt.category, thisPlayer }]);
+      const roomInfo = await this.database.getRoomInfo(room);
+      const thisPlayer = await this.database.join(room, roomInfo.limit);
+      this.router.navigate(['/play',
+        { o: 1, f: roomInfo.fake, n: roomInfo.limit, w: roomInfo.prompt.word, c: roomInfo.prompt.category, i: thisPlayer }]);
     } catch (error) {
       this.errorMessage = error;
     }
+  }
+
+  generateFake(limit: number): number {
+    return Math.floor(Math.random() * limit) + 1;
   }
 }

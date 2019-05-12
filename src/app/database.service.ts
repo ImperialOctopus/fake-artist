@@ -21,7 +21,7 @@ export class DatabaseService {
         throw new error('Write error: ' + error);
       });
   }
-  async getRoomInfo(roomName: string): Promise<Array<any>> {
+  async getRoomInfo(roomName: string): Promise<{ prompt: Prompt, fake: number, limit: number }> {
     let prompt: Prompt;
     let fake: number;
     let limit: number;
@@ -32,7 +32,7 @@ export class DatabaseService {
       prompt = new Prompt(doc.data().category, doc.data().word);
       fake = doc.data().fake;
       limit = doc.data().playerLimit;
-      return [prompt, fake, limit];
+      return { prompt, fake, limit };
     } else {
       throw new Error('No such room');
     }
