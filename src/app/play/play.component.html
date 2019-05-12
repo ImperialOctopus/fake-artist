@@ -1,18 +1,11 @@
 <div class="container">
-  <div class="row center-align">
+  <div class="category">
     <h1>{{prompt.category}}</h1>
   </div>
-  <div (click)="toggleWord()">
-    <span>
-      <div *ngIf="!wordVisible">
-        Show Word
-      </div>
-      <div *ngIf="wordVisible">
-        <b>
-          {{thisPlayer == fakePlayer ? "FAKE" : prompt.word}}
-        </b>
-      </div>
-    </span>
+  <div (click)="toggleWord()" class="wordContainer">
+    <div class="word">
+      {{wordVisible ? (thisPlayer == fakePlayer ? "Fake" : prompt.word) : "Show Word"}}
+    </div>
   </div>
   <div class="playerNumber">
     <button mat-icon-button color="primary" (click)="numberDown()" *ngIf="!online">

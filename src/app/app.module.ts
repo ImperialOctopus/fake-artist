@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 const appRoutes: Routes = [
   { path: '', component: MenuComponent },
@@ -30,7 +31,7 @@ const appRoutes: Routes = [
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule,
-    MatButtonModule, MatIconModule, MatDialogModule, MatSlideToggleModule, MatInputModule],
+    MatButtonModule, MatIconModule, MatDialogModule, MatSlideToggleModule, MatInputModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: []
