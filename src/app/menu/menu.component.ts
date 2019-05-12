@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit {
 
     this.database.create(
       this.roomName,
-      Math.floor(Math.random() * n) + 1,
+      f,
       n,
       p);
     this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
