@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WordlistService } from '../wordlist.service';
 import { DatabaseService } from '../database.service';
-import { Prompt } from '../prompt';
 
 @Component({
   selector: 'app-menu',
@@ -36,7 +35,7 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  playOffline() {
+  async playOffline() {
     const f = Math.floor(Math.random() * this.playerNumber) + 1;
     const n = this.playerNumber;
     const p = this.wordlistService.generatePrompt();
@@ -44,27 +43,30 @@ export class MenuComponent implements OnInit {
 
     this.router.navigate(['/play', { o: 0, f, n, w: p.word, c: p.category, i }]);
   }
-  playOnlineCreate() {
+  async playOnlineCreate() {
     const f = Math.floor(Math.random() * this.playerNumber) + 1;
     const n = this.playerNumber;
     const p = this.wordlistService.generatePrompt();
     const i = 1;
-
     if (this.roomName === '') {
       this.roomName = 'blank';
     }
 
-    this.database.create(
-      this.roomName,
-      f,
-      n,
-      p);
-    this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
+    try {
+      await this.database.create(
+        this.roomName,
+        f,
+        n,
+        p);
+      this.router.navigate(['/play', { o: 1, f, n, w: p.word, c: p.category, i }]);
+    } catch (error) {
+      this.errorMessage = error;
+    }
   }
   async playOnlineJoin() {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;  // Room name
     try {
-      const roomInfo = await this.database.getRoomInfo(room);
+      const roomInfo = this.database.getRoomInfo(room);
       const prompt = roomInfo[0];  // Prompt
       const fake = roomInfo[1];  // Fake
       const totalPlayers = roomInfo[2];  // Total players

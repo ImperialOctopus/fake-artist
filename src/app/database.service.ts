@@ -9,19 +9,16 @@ export class DatabaseService {
 
   constructor(private db: AngularFirestore) { }
 
-  create(roomName: string, fake: number, playerNumber: number, prompt: Prompt): void {
-    this.db.collection('rooms').doc(roomName).set({
+  async create(roomName: string, fake: number, playerNumber: number, prompt: Prompt): Promise<void> {
+    return this.db.collection('rooms').doc(roomName).set({
       category: prompt.category,
       fake,
       playerLimit: playerNumber,
       players: 1,
       word: prompt.word
     })
-      .then(() => {
-        console.log('Document successfully written!');
-      })
       .catch((error) => {
-        console.error('Error writing document: ', error);
+        throw new error('Write error: ' + error);
       });
   }
   async getRoomInfo(roomName: string): Promise<Array<any>> {
@@ -30,36 +27,29 @@ export class DatabaseService {
     let limit: number;
 
     const sfDocRef = this.db.firestore.collection('rooms').doc(roomName);
-    try {
-      const doc = await sfDocRef.get();
-      if (doc.exists) {
-        prompt = new Prompt(doc.data().category, doc.data().word);
-        fake = doc.data().fake;
-        limit = doc.data().playerLimit;
-        return [prompt, fake, limit];
-      } else {
-        throw new Error('No such room');
-      }
-    } catch (error) {
-      throw new Error('Room join failed: ' + error);
+    const doc = await sfDocRef.get();
+    if (doc.exists) {
+      prompt = new Prompt(doc.data().category, doc.data().word);
+      fake = doc.data().fake;
+      limit = doc.data().playerLimit;
+      return [prompt, fake, limit];
+    } else {
+      throw new Error('No such room');
     }
   }
   async join(roomName: string, limit: number): Promise<number> {
     const sfDocRef = this.db.firestore.collection('rooms').doc(roomName);
-    try {
-      return this.db.firestore.runTransaction((transaction) => {
-        return transaction.get(sfDocRef).then((sfDoc) => {
-          if (sfDoc.data().players < limit) {
-            const n = sfDoc.data().players + 1;
-            transaction.update(sfDocRef, { players: n });
-            return n;
-          } else {
-            throw new Error('Room full');
-          }
-        });
+
+    return this.db.firestore.runTransaction(
+      async (transaction) => {
+        const sfDoc = await transaction.get(sfDocRef);
+        if (sfDoc.data().players < limit) {
+          const n = sfDoc.data().players + 1;
+          transaction.update(sfDocRef, { players: n });
+          return n;
+        } else {
+          throw new Error('Room full (' + limit + '/' + limit + ')');
+        }
       });
-    } catch (error) {
-      throw new Error('Room join failed: ' + error);
-    }
   }
 }
