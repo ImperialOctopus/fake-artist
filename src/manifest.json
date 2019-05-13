@@ -1,8 +1,8 @@
 {
   "name": "Fake Artist Companion",
   "short_name": "Fake Artist",
-  "theme_color": "#6a0080",
-  "background_color": "#fafafa",
+  "theme_color": "#9b9b9b",
+  "background_color": "#CCCCCC",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
