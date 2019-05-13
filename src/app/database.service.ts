@@ -27,7 +27,7 @@ export class DatabaseService {
     let limit: number;
 
     const sfDocRef = this.db.firestore.collection('rooms').doc(roomName);
-    const doc = await sfDocRef.get();
+    const doc = await sfDocRef.get({ source: 'server' });
     if (doc.exists) {
       prompt = new Prompt(doc.data().category, doc.data().word);
       fake = doc.data().fake;

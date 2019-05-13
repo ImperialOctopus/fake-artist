@@ -15,6 +15,8 @@ import { PlayComponent } from './play/play.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 const appRoutes: Routes = [
   { path: '', component: MenuComponent },
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
     AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule.enablePersistence(),
-    MatButtonModule, MatIconModule, MatInputModule],
+    MatButtonModule, MatIconModule, MatInputModule, MatProgressSpinnerModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: []

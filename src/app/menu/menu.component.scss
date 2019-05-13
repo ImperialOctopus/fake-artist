@@ -29,12 +29,18 @@ header {
     margin-right: 10px;
   }
 }
-.error {
+.message {
   span {
     color: red;
     font-weight: bold;
   }
-  margin-top: -5px;
+  mat-spinner {
+    margin: auto;
+  }
+
+  text-align: center;
+  height: 20px;
+  margin-top: -10px;
   margin-bottom: 10px;
 }
 .buttons {

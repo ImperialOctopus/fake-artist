@@ -4,7 +4,6 @@
     <h2>Companion App</h2>
   </header>
   <div class="playerNumberContainer">
-    <span class="instructions">Select number of players:</span>
     <div class="playerNumber">
       <button mat-icon-button color="basic" (click)="numberDown()">
         <mat-icon>remove</mat-icon>
@@ -21,8 +20,9 @@
       <input matInput [(ngModel)]="roomName" autocomplete="off">
     </mat-form-field>
   </div>
-  <div class="error">
-    <span>{{errorMessage}}</span>
+  <div class="message">
+    <span *ngIf="message != 'Loading'">{{message}}</span>
+    <mat-spinner *ngIf="message === 'Loading'" diameter="20" color="basic"></mat-spinner>
   </div>
   <div class="buttons">
     <button mat-raised-button color="basic" (click)="playOnlineJoin()" class="button-join">Join</button>
