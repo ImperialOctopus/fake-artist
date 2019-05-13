@@ -11,17 +11,19 @@ import { DatabaseService } from '../database.service';
 export class MenuComponent implements OnInit {
   playerNumber: number;
   roomName: string;
-  errorMessage: string;
+  message: string;
+  isConnected = true;
 
   constructor(
     private wordlistService: WordlistService,
     private database: DatabaseService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.playerNumber = 3;
     this.roomName = '';
+    this.wordlistService.initialise();
   }
 
   numberUp() {
@@ -36,18 +38,20 @@ export class MenuComponent implements OnInit {
   }
 
   async playOffline() {
+    this.message = 'Loading';
     const fake = this.generateFake(this.playerNumber);
     const totalPlayers = this.playerNumber;
     try {
       const prompt = await this.wordlistService.generatePrompt();
       this.router.navigateByUrl('/play', { state: { online: false, fake, totalPlayers, prompt, thisPlayer: 1 } });
     } catch (error) {
-      this.errorMessage = error;
+      this.message = error;
     }
   }
 
   async playOnlineCreate() {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;
+    this.message = 'Loading';
 
     const fake = this.generateFake(this.playerNumber);
     const totalPlayers = this.playerNumber;
@@ -57,12 +61,13 @@ export class MenuComponent implements OnInit {
       await this.database.create(room, fake, totalPlayers, prompt);
       this.router.navigateByUrl('/play', { state: { online: true, fake, totalPlayers, prompt, thisPlayer: 1 } });
     } catch (error) {
-      this.errorMessage = error;
+      this.message = error;
     }
   }
 
   async playOnlineJoin() {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;
+    this.message = 'Loading';
 
     try {
       const roomInfo = await this.database.getRoomInfo(room);
@@ -74,7 +79,7 @@ export class MenuComponent implements OnInit {
       if (error.code === 'unavailable') {
         error = 'Internet disconnected';
       }
-      this.errorMessage = error;
+      this.message = error;
     }
   }
 

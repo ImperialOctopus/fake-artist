@@ -1,7 +1,7 @@
 import { Prompt } from './prompt';
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import * as wordlist from './wordlists/wordlist.json';
+import { Injectable, OnInit } from '@angular/core';
+import { AngularFirestore, QueryDocumentSnapshot } from '@angular/fire/firestore';
+import * as offlineList from './wordlists/wordlist.json';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +9,35 @@ import * as wordlist from './wordlists/wordlist.json';
 export class WordlistService {
   constructor(private db: AngularFirestore) { }
 
-  async generatePrompt(): Promise<Prompt> {
+  wordlist: Promise<Array<Prompt>>;
 
-    const c = await this.db.collection('wordlist').get();
-    c.subscribe(queriedItems => {
-      console.log(queriedItems);
-    });
-    return null;
+  async initialise() {
+    this.wordlist = this.loadWordlist();
   }
 
-  async generatePromptOffline(): Promise<Prompt> {
-    const array: Array<object> = wordlist.words;
+  async loadWordlist(): Promise<Array<Prompt>> {
+    try {
+      let list: Array<Prompt> = new Array<Prompt>();
+      const col = this.db.collection('wordlist').get();
 
-    return Object.assign(
-      array[Math.floor(Math.random() * array.length)]
-    );
+      await col.forEach((qs) => {
+        qs.forEach((doc) => {
+          const n: Array<Prompt> = doc.data().words.map((element: string) => {
+            return new Prompt(doc.data().category, element);
+          });
+          list = list.concat(n);
+        });
+      });
+      return list;
+    } catch (error) {
+      return offlineList.words;
+    }
+  }
+
+  async generatePrompt(): Promise<Prompt> {
+    console.log(this.wordlist);
+    const loadedList = await this.wordlist;
+    console.log(loadedList);
+    return loadedList[Math.floor(Math.random() * loadedList.length)];
   }
 }
