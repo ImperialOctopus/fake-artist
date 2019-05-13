@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   declarations: [AppComponent, MenuComponent, PlayComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ServiceWorkerModule.register('ngsw-worker.js',
     { enabled: environment.production }), BrowserAnimationsModule, FormsModule,
-    AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule.enablePersistence(),
     MatButtonModule, MatIconModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
