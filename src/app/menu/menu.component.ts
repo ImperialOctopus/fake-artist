@@ -38,24 +38,29 @@ export class MenuComponent implements OnInit {
   async playOffline() {
     const fake = this.generateFake(this.playerNumber);
     const totalPlayers = this.playerNumber;
-    const prompt = this.wordlistService.generatePrompt();
-
-    this.router.navigateByUrl('/play', { state: { online: false, fake, totalPlayers, prompt, thisPlayer: 1 } });
+    try {
+      const prompt = await this.wordlistService.generatePrompt();
+      this.router.navigateByUrl('/play', { state: { online: false, fake, totalPlayers, prompt, thisPlayer: 1 } });
+    } catch (error) {
+      this.errorMessage = error;
+    }
   }
+
   async playOnlineCreate() {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;
 
     const fake = this.generateFake(this.playerNumber);
     const totalPlayers = this.playerNumber;
-    const prompt = this.wordlistService.generatePrompt();
 
     try {
+      const prompt = await this.wordlistService.generatePrompt();
       await this.database.create(room, fake, totalPlayers, prompt);
       this.router.navigateByUrl('/play', { state: { online: true, fake, totalPlayers, prompt, thisPlayer: 1 } });
     } catch (error) {
       this.errorMessage = error;
     }
   }
+
   async playOnlineJoin() {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;
 

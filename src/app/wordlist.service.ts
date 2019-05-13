@@ -9,7 +9,7 @@ import * as wordlist from './wordlists/wordlist.json';
 export class WordlistService {
   constructor() { }
 
-  generatePrompt(): Prompt {
+  async generatePrompt(): Promise<Prompt> {
     const array: Array<object> = wordlist.words;
 
     const prompt: Prompt = Object.assign(
