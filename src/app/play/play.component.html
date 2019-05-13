@@ -8,15 +8,15 @@
     </div>
   </div>
   <div class="playerNumber">
-    <button mat-icon-button color="primary" (click)="numberDown()" *ngIf="!online">
+    <button mat-icon-button color="basic" (click)="numberDown()" *ngIf="!online">
       <mat-icon>remove</mat-icon>
     </button>
     <span>{{thisPlayer}} / {{totalPlayers}}</span>
-    <button mat-icon-button color="primary" (click)="numberUp()" *ngIf="!online">
+    <button mat-icon-button color="basic" (click)="numberUp()" *ngIf="!online">
       <mat-icon>add</mat-icon>
     </button>
   </div>
   <div class="backButton">
-    <button (click)="back()" mat-raised-button color="primary">Back</button>
+    <button (click)="back()" mat-raised-button color="basic">Back</button>
   </div>
 </div>

@@ -66,6 +66,9 @@ export class MenuComponent implements OnInit {
         state: { online: true, fake: roomInfo.fake, totalPlayers: roomInfo.limit, prompt: roomInfo.prompt, thisPlayer }
       });
     } catch (error) {
+      if (error.code === 'unavailable') {
+        error = 'Internet disconnected';
+      }
       this.errorMessage = error;
     }
   }

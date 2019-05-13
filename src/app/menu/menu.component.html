@@ -3,15 +3,14 @@
     <h1>A Fake Artist</h1>
     <h2>Companion App</h2>
   </header>
-
   <div class="playerNumberContainer">
     <span class="instructions">Select number of players:</span>
     <div class="playerNumber">
-      <button mat-icon-button color="primary" (click)="numberDown()">
+      <button mat-icon-button color="basic" (click)="numberDown()">
         <mat-icon>remove</mat-icon>
       </button>
       <span>{{playerNumber}}</span>
-      <button mat-icon-button color="primary" (click)="numberUp()">
+      <button mat-icon-button color="basic" (click)="numberUp()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
@@ -26,9 +25,9 @@
     <span>{{errorMessage}}</span>
   </div>
   <div class="buttons">
-    <button mat-raised-button color="primary" (click)="playOnlineJoin()">Join</button>
-    <button mat-raised-button color="primary" (click)="playOnlineCreate()">Create</button>
+    <button mat-raised-button color="basic" (click)="playOnlineJoin()" class="button-join">Join</button>
+    <button mat-raised-button color="basic" (click)="playOnlineCreate()" class="button-create">Create</button>
     <br />
-    <button mat-raised-button color="primary" (click)="playOffline()">Play Offline</button>
+    <button mat-raised-button color="basic" (click)="playOffline()" class="button-offline">Play Offline</button>
   </div>
 </div>

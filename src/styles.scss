@@ -16,16 +16,28 @@ body {
   -ms-user-select: none;
   font-family: $font-family;
   background-image: url("assets/background.jpg");
-  background-image: -webkit-image-set(url("assets/background1x.webp") 1x,
-    url("assets/background2x.webp") 2x);
-  background-image: image-set(url("assets/background1x.webp") 1x,
-    url("assets/background2x.webp") 2x);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
 
+app-menu, app-play {
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.container {
+  padding: 40px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  background-color: #FFFFFFDD;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }

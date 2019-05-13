@@ -1,12 +1,3 @@
-.container {
-  margin: auto;
-  width: 100%;
-  max-width: 768px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
 header {
   h1 {
     font-size: 2rem;
@@ -26,6 +17,7 @@ header {
   max-width: 150px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -44,4 +36,18 @@ header {
   }
   margin-top: -5px;
   margin-bottom: 10px;
+}
+.buttons {
+  .button-join {
+    width: 97px;
+    margin-right: 3px;
+  }
+  .button-create {
+    width: 97px;
+    margin-left: 3px;
+  }
+  .button-offline {
+    width: 200px;
+    margin-top: 6px;
+  }
 }

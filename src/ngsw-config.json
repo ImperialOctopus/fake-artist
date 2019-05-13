@@ -6,15 +6,16 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/assets/icons/icon-72x72.png",
           "/index.html",
           "/*.css",
           "/*.js"
         ]
       }
-    }, {
+    },
+    {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
         "files": [
