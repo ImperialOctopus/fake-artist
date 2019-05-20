@@ -44,9 +44,9 @@ export class PlayComponent implements OnInit {
     this.wordVisible = false;
   }
   numberDown() {
-    if (this.thisPlayer > 0) {
+    if (this.thisPlayer > 1) {
       this.thisPlayer -= 1;
-    } else if (this.thisPlayer === 0) {
+    } else if (this.thisPlayer === 1) {
       this.thisPlayer = this.totalPlayers;
     }
     this.wordVisible = false;
