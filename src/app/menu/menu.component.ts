@@ -24,8 +24,6 @@ export class MenuComponent implements OnInit {
     this.playerNumber = 3;
     this.roomName = '';
     this.wordlistService.initialise();
-
-    this.database.
   }
 
   numberUp() {

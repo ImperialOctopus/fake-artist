@@ -44,4 +44,14 @@ export class WordlistService {
   generateFake(limit: number): number {
     return Math.floor(Math.random() * limit) + 1;
   }
+
+  testFakeGeneration(): void {
+    for (let i = 3; i < 10; i++) {
+      let array: Array<number> = Array(i).fill(0);
+      for (let j = 0; j < 1000; j++) {
+        array[this.generateFake(i) - 1] += 1;
+      }
+      console.log(i + ": " + array);
+    }
+  }
 }
