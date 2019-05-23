@@ -24,6 +24,8 @@ export class MenuComponent implements OnInit {
     this.playerNumber = 3;
     this.roomName = '';
     this.wordlistService.initialise();
+
+    this.database.
   }
 
   numberUp() {
@@ -39,7 +41,7 @@ export class MenuComponent implements OnInit {
 
   async playOffline() {
     this.message = 'Loading';
-    const fake = this.generateFake(this.playerNumber);
+    const fake = this.wordlistService.generateFake(this.playerNumber);
     const totalPlayers = this.playerNumber;
     try {
       const prompt = await this.wordlistService.generatePrompt();
@@ -53,7 +55,7 @@ export class MenuComponent implements OnInit {
     const room: string = (this.roomName === '') ? 'blank' : this.roomName;
     this.message = 'Loading';
 
-    const fake = this.generateFake(this.playerNumber);
+    const fake = this.wordlistService.generateFake(this.playerNumber);
     const totalPlayers = this.playerNumber;
 
     try {
@@ -83,7 +85,5 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  generateFake(limit: number): number {
-    return Math.floor(Math.random() * limit) + 1;
-  }
+
 }

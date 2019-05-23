@@ -40,4 +40,8 @@ export class WordlistService {
     console.log(loadedList);
     return loadedList[Math.floor(Math.random() * loadedList.length)];
   }
+
+  generateFake(limit: number): number {
+    return Math.floor(Math.random() * limit) + 1;
+  }
 }
