@@ -3,8 +3,8 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$fake-artist-primary: mat-palette($mat-purple);
-$fake-artist-accent: mat-palette($mat-pink, A200, A100, A400);
+$fake-artist-primary: mat-palette($mat-grey);
+$fake-artist-accent: mat-palette($mat-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $fake-artist-warn: mat-palette($mat-red);

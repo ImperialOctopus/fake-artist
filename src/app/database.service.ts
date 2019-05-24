@@ -24,6 +24,7 @@ export class DatabaseService {
   }
   async getRoomInfo(roomName: string): Promise<{ prompt: Prompt, fake: number, limit: number }> {
     roomName = this.prepareRoomName(roomName);
+    console.log(roomName);
     let prompt: Prompt;
     let fake: number;
     let limit: number;
@@ -41,7 +42,6 @@ export class DatabaseService {
   }
   async join(roomName: string, limit: number): Promise<number> {
     roomName = this.prepareRoomName(roomName);
-    console.log(roomName);
     const sfDocRef = this.db.firestore.collection('rooms').doc(roomName);
 
     return this.db.firestore.runTransaction(
