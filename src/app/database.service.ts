@@ -10,6 +10,7 @@ export class DatabaseService {
   constructor(private db: AngularFirestore) { }
 
   async create(roomName: string, fake: number, playerNumber: number, prompt: Prompt): Promise<void> {
+    roomName = this.prepareRoomName(roomName);
     return this.db.collection('rooms').doc(roomName).set({
       category: prompt.category,
       fake,
@@ -22,6 +23,7 @@ export class DatabaseService {
       });
   }
   async getRoomInfo(roomName: string): Promise<{ prompt: Prompt, fake: number, limit: number }> {
+    roomName = this.prepareRoomName(roomName);
     let prompt: Prompt;
     let fake: number;
     let limit: number;
@@ -38,6 +40,8 @@ export class DatabaseService {
     }
   }
   async join(roomName: string, limit: number): Promise<number> {
+    roomName = this.prepareRoomName(roomName);
+    console.log(roomName);
     const sfDocRef = this.db.firestore.collection('rooms').doc(roomName);
 
     return this.db.firestore.runTransaction(
@@ -51,5 +55,9 @@ export class DatabaseService {
           throw new Error('Room full (' + limit + '/' + limit + ')');
         }
       });
+  }
+
+  prepareRoomName(roomName: string): string {
+    return roomName.toLowerCase().replace(/[^a-z0-9]/g, '');
   }
 }
