@@ -12,7 +12,6 @@ export class MenuComponent implements OnInit {
   playerNumber: number;
   roomName: string;
   message: string;
-  isConnected = true;
 
   constructor(
     private wordlistService: WordlistService,

@@ -35,9 +35,7 @@ export class WordlistService {
   }
 
   async generatePrompt(): Promise<Prompt> {
-    console.log(this.wordlist);
     const loadedList = await this.wordlist;
-    console.log(loadedList);
     return loadedList[Math.floor(Math.random() * loadedList.length)];
   }
 
@@ -47,11 +45,10 @@ export class WordlistService {
 
   testFakeGeneration(): void {
     for (let i = 3; i < 10; i++) {
-      let array: Array<number> = Array(i).fill(0);
+      const array: Array<number> = Array(i).fill(0);
       for (let j = 0; j < 1000; j++) {
         array[this.generateFake(i) - 1] += 1;
       }
-      console.log(i + ": " + array);
     }
   }
 }
