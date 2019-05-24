@@ -24,7 +24,6 @@ export class DatabaseService {
   }
   async getRoomInfo(roomName: string): Promise<{ prompt: Prompt, fake: number, limit: number }> {
     roomName = this.prepareRoomName(roomName);
-    console.log(roomName);
     let prompt: Prompt;
     let fake: number;
     let limit: number;
