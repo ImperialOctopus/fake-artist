@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  firebaseConfig: {
+  firebase: {
     apiKey: 'AIzaSyDNjybEvdRlxGeGNZhwd6PmolIIB6blLNk',
     authDomain: 'fake-artist-companion.firebaseapp.com',
     databaseURL: 'https://fake-artist-companion.firebaseio.com',
